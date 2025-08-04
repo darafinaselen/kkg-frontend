@@ -1,0 +1,271 @@
+/* General Styling */
+:root {
+  --primary-blue: #23459c; /* Sedikit lebih gelap dari gambar */
+  --light-blue: #3b5998; /* Biru yang digunakan untuk gelombang */
+  --white: #ffffff;
+  --text-color: #333;
+  --card-bg: #f8f8f8; /* Mungkin sedikit abu-abu untuk background kartu */
+  --card-border: #e0e0e0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--primary-blue); /* Background utama adalah biru */
+  overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Header */
+.header {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 15px 5%;
+  display: flex;
+  justify-content: flex-end; /* Pindahkan navigasi ke kanan */
+  align-items: center;
+  position: relative;
+  z-index: 10; /* Pastikan header di atas konten */
+}
+
+.header .logo {
+  /* Jika Anda punya logo, atur stylenya di sini */
+  /* width: 100px;
+    height: 40px;
+    background-color: white; */
+}
+
+.navbar ul {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 2px 50px;
+  padding-top: 15px;
+}
+
+.navbar a {
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  background-color: rgb(245, 243, 243);
+  color: #23459c;
+}
+
+.navbar a.active {
+  border: 1px solid var(--white); /* Border pada item aktif */
+}
+
+/* Main Content Area */
+.main-content {
+  background-color: var(--primary-blue);
+  position: relative;
+  padding-bottom: 100px; /* Ruang untuk gelombang di bawah */
+  z-index: 1;
+}
+
+/* Contact Hero Section */
+.contact-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 10px 150px; /* Padding bawah lebih besar untuk gelombang */
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-hero .user-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+  color: var(--white);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.contact-hero h1 {
+  font-size: 3.5em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Wave effect for the background */
+.main-content::before {
+  content: "";
+  position: absolute;
+  bottom: -50px; /* Sesuaikan posisi gelombang */
+  left: 0;
+  width: 100%;
+  height: 110px; /* Tinggi gelombang */
+  background-color: var(--white); /* Warna dasar gelombang */
+  transform: translateY(50px); /* Geser sedikit ke bawah */
+  z-index: 0;
+  display: block;
+}
+
+/* Contact Cards Section */
+.contact-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 0 5%;
+  position: relative;
+  z-index: 3; /* Pastikan kartu di atas gelombang */
+  margin-top: -80px; /* Tarik kartu ke atas, menindih gelombang */
+}
+
+.card {
+  background-color: var(--white);
+  border-radius: 15px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(0); /* Untuk efek gelombang, kartu muncul dari bawah */
+  transition: transform 0.5s ease-out; /* Animasi untuk efek gelombang */
+}
+
+.card .icon-wrapper {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card p {
+  font-size: 0.95em;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .navbar ul {
+    gap: 20px;
+  }
+
+  .contact-hero h1 {
+    font-size: 3em;
+  }
+
+  .contact-cards {
+    gap: 30px;
+    flex-wrap: wrap; /* Izinkan kartu untuk melilit */
+    justify-content: center;
+  }
+
+  .card {
+    max-width: 45%; /* Dua kartu per baris */
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    justify-content: center;
+    padding: 15px 3%;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .contact-hero {
+    padding: 60px 20px 100px;
+  }
+
+  .contact-hero .user-icon {
+    font-size: 60px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.5em;
+  }
+
+  .contact-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-top: -50px;
+  }
+
+  .card {
+    max-width: 90%; /* Satu kartu per baris */
+  }
+
+  .main-content::before {
+    height: 100px;
+    transform: translateY(30px);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 0;
+  }
+
+  .navbar a {
+    padding: 6px 10px;
+    font-size: 0.9em;
+  }
+
+  .contact-hero h1 {
+    font-size: 2em;
+  }
+
+  .card {
+    padding: 30px 20px;
+  }
+
+  .card .icon-wrapper {
+    width: 70px;
+    height: 70px;
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+
+  .card p {
+    font-size: 0.85em;
+  }
+}

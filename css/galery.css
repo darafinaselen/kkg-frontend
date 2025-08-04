@@ -1,0 +1,189 @@
+/* Reset CSS dan Pengaturan Font Dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", "Helvetica", "Arial", sans-serif;
+  background-color: #1e4a97;
+}
+
+/* Wrapper Utama untuk Halaman Galeri */
+.gallery-wrapper {
+  background-color: #1e4a97; /* Warna biru tua dari desain */
+  color: #ffffff;
+  min-height: 100vh; /* Memastikan section ini memenuhi layar */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container untuk membatasi lebar konten */
+.container {
+  max-width: 1300px;
+  margin: auto auto;
+  padding: 12px 5px;
+  width: 100%;
+}
+
+/* Header & Navigasi */
+header {
+  background-color: #1e4a97;
+  display: flex;
+  justify-content: flex-end; /* Mendorong navigasi ke kanan */
+  align-items: center;
+  padding-top: 12px 12px;
+  padding-bottom: 4px 4px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+nav li {
+  margin-left: 12px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Gaya untuk link navigasi yang aktif */
+nav a.active,
+nav a:hover {
+  background-color: #ffffff;
+  color: #1e4a97;
+}
+
+/* Konten Utama Galeri */
+.gallery-content {
+  flex-grow: 1; /* Membuat konten mengisi ruang yang tersisa */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.gallery-content h1 {
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Carousel/Slider */
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 25px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 15px;
+  overflow: hidden; /* Sembunyikan gambar tambahan di luar track */
+}
+
+.carousel-item img {
+  width: 300px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.carousel-item img:hover {
+  transform: scale(1.05);
+}
+
+/* Tombol Panah */
+.carousel-arrow {
+  background: none;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  flex-shrink: 0;
+}
+
+.carousel-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.carousel-arrow svg {
+  fill: #ffffff;
+  width: 20px;
+  height: 20px;
+}
+
+/* Gaya untuk Pemisah Bentuk Kurva */
+.wave-separator {
+  line-height: 0;
+}
+
+.wave-separator svg {
+  display: block;
+  width: 100%;
+  height: 120px;
+}
+
+.wave-separator {
+  fill: #ffffff;
+}
+
+p {
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: black;
+  margin: 12px;
+}
+
+/* Media Query untuk Perangkat Mobile */
+@media (max-width: 1024px) {
+  .carousel-track {
+    /* Sembunyikan gambar ke-3 pada layar yang lebih kecil */
+    justify-content: center;
+  }
+  .carousel-item:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-content h1 {
+    font-size: 36px;
+  }
+  /* Sembunyikan gambar ke-2 dan ke-3, hanya tampilkan satu */
+  .carousel-item:nth-child(2) {
+    display: none;
+  }
+
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+}

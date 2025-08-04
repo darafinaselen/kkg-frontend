@@ -1,0 +1,164 @@
+/* Reset dan Pengaturan Dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", "Arial", sans-serif;
+  background-color: #1e4a97; /* Warna biru tua dari background */
+  color: #ffffff;
+}
+
+/* Pengaturan Container Utama */
+.container {
+  max-width: 1300px;
+  margin: auto auto;
+  padding: 12px 20px;
+}
+
+/* Header dan Navigasi */
+header {
+  justify-content: space-between;
+  background-color: #1e4a97;
+  padding: 15px 12px;
+  width: 100%;
+  padding-bottom: 12px;
+  position: relative;
+}
+
+.logo {
+  font-size: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 3px;
+  padding-top: 5px;
+}
+
+nav li {
+  margin-left: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+  background-color: #ffffff;
+  color: #1e4a97;
+}
+
+/* Konten Utama */
+main {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+main h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* Layout Berita */
+.news-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* Grid Berita di Kiri */
+.news-grid {
+  flex: 2; /* Memberi ruang lebih besar (sekitar 66%) */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  overflow: hidden; /* Agar gambar mengikuti border-radius */
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: 180px; /* Memberi tinggi yang konsisten untuk gambar */
+  object-fit: cover; /* Memastikan gambar memenuhi area tanpa distorsi */
+  display: block;
+}
+
+.card .card-body {
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Berita Utama di Kanan */
+.featured-news {
+  flex: 1.5; /* Memberi ruang lebih kecil (sekitar 33%) */
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-image-container img {
+  width: 100%;
+  border-radius: 15px;
+  display: block;
+}
+
+.featured-body {
+  margin-top: 25px;
+}
+
+.featured-body h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.featured-body p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+/* Media Query untuk Tablet dan Mobile (Responsif) */
+@media (max-width: 992px) {
+  .news-layout {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    justify-content: center;
+    flex-wrap: wrap; /* Agar navigasi tidak keluar layar */
+    gap: 10px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  main h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+}
