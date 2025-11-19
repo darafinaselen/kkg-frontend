@@ -4,63 +4,128 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Galeri</title>
-    <link rel="stylesheet" href="/css/galery.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/galery.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="gallery-wrapper">
-      <header class="container">
-        <nav>
-          <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="galery.html">Galery</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="about.html">About</a></li>
-          </ul>
-        </nav>
-      </header>
+      <div id="navbar-placeholder"></div>
 
       <main class="gallery-content container">
-        <h1>GALERY</h1>
-
-        <div class="carousel">
-          <button class="carousel-arrow prev-arrow">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" /></svg>
-          </button>
-
-          <div class="carousel-track">
-            <div class="carousel-item">
-              <img src="/img/unsplash.jpg" alt="Wanita di padang ilalang dengan cahaya merah" />
-              <p>Gambar 1 Lorem ipsum dolor sit amet consectetur.</p>
-            </div>
-            <div class="carousel-item">
-              <img src="/img/unsplash.jpg" alt="Seseorang duduk di pinggir jalan" />
-              <p>Gambar 2 Lorem ipsum dolor sit amet consectetur.</p>
-            </div>
-            <div class="carousel-item">
-              <img src="/img/unsplash.jpg" alt="Pemandangan gunung dari jendela" />
-              <p>Gambar 3 Lorem ipsum dolor sit amet consectetur.</p>
-            </div>
-            <div class="carousel-item">
-              <img src="/img/unsplash.jpg" alt="Pemandangan gunung dari jendela" />
-              <p>Gambar 4Lorem ipsum dolor sit amet consectetur.</p>
-            </div>
-          </div>
-
-          <button class="carousel-arrow next-arrow">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z" /></svg>
-          </button>
+        <div class="gallery-header">
+          <h1>GALERY</h1>
+          <button class="add-image-btn">Tambah Gambar</button>
         </div>
+
+        <div id="gallery-grid" class="gallery-grid-container"></div>
       </main>
+    </div>
+
+    <div id="addImageModal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <button class="close-modal-btn">&times;</button>
+        <h2>Tambah Gambar Baru</h2>
+        <form id="addImageForm">
+          <div class="form-group">
+            <label for="imageFile">Pilih Gambar (Opsional jika edit)</label>
+            <input
+              type="file"
+              name="imageFile"
+              id="imageFile"
+              accept="image/*"
+            />
+          </div>
+          <div class="form-group">
+            <label for="imageCaption">Keterangan Gambar</label>
+            <input
+              type="text"
+              name="imageCaption"
+              id="imageCaption"
+              placeholder="Masukkan keterangan singkat"
+              required
+            />
+          </div>
+          <div class="form-actions">
+            <button type="button" class="cancel-btn">Batal</button>
+            <button type="submit" class="save-btn">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="lightbox-modal" class="lightbox-overlay hidden">
+      <button class="lightbox-close">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <button class="lightbox-arrow prev">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="lightbox-content">
+        <img id="lightbox-image" src="" alt="Gambar Penuh" />
+        <div class="lightbox-info">
+          <p id="lightbox-caption">Keterangan Gambar Akan Tampil Di Sini</p>
+          <p id="lightbox-date"></p>
+          <div class="lightbox-actions">
+            <button id="lightbox-edit-btn">Edit ✏️</button>            
+            <button id="lightbox-delete-btn">Hapus 🗑️</button>          
+          </div>
+        </div>
+      </div>
+      <button class="lightbox-arrow next">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
     </div>
 
     <div class="wave-separator">
       <footer></footer>
     </div>
 
-    <section class="next-section"></section>
+    <!-- <section class="next-section"></section> -->
+    <script src="js/galery.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

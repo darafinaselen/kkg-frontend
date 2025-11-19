@@ -1,143 +1,390 @@
-/* Reset CSS dan Pengaturan Font Dasar */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Poppins", "Helvetica", "Arial", sans-serif;
-  background-color: #1e4a97;
-}
-
-/* Wrapper Utama untuk Halaman Galeri */
-.gallery-wrapper {
-  background-color: #1e4a97; /* Warna biru tua dari desain */
-  color: #ffffff;
-  min-height: 100vh; /* Memastikan section ini memenuhi layar */
+/* Konten Utama Galeri */
+.gallery-header {
   display: flex;
-  flex-direction: column;
-}
-
-/* Container untuk membatasi lebar konten */
-.container {
-  max-width: 1300px;
-  margin: auto auto;
-  padding: 12px 5px;
-  width: 100%;
-}
-
-/* Header & Navigasi */
-header {
-  background-color: #1e4a97;
-  display: flex;
-  justify-content: flex-end; /* Mendorong navigasi ke kanan */
-  align-items: center;
-  padding-top: 12px 12px;
-  padding-bottom: 4px 4px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  gap: 1rem;
   justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 20px;
 }
-
-nav li {
-  margin-left: 12px;
+.gallery-header h1 {
+  margin: 0;
+  color: white;
 }
-
-nav a {
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 16px;
-  padding: 10px 20px;
-  border-radius: 50px;
-  transition: all 0.3s ease-in-out;
-}
-
-/* Gaya untuk link navigasi yang aktif */
-nav a.active,
-nav a:hover {
+.add-image-btn {
   background-color: #ffffff;
   color: #1e4a97;
-}
-
-/* Konten Utama Galeri */
-.gallery-content {
-  flex-grow: 1; /* Membuat konten mengisi ruang yang tersisa */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.gallery-content h1 {
-  color: #ffffff;
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 50px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-
-/* Carousel/Slider */
-.carousel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  gap: 25px;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 15px;
-  overflow: hidden; /* Sembunyikan gambar tambahan di luar track */
-}
-
-.carousel-item img {
-  width: 300px;
-  height: 380px;
-  object-fit: cover;
+  border: none;
+  padding: 12px 24px;
   border-radius: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  /* display: block; */
+  transition: background-color 0.3s, color 0.3s;
+}
+.add-image-btn:hover {
+  background-color: #1e4a97;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+.gallery-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+.gallery-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  aspect-ratio: 1 / 1;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
 }
 
-.carousel-item img:hover {
-  transform: scale(1.05);
+.gallery-item .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 20%,
+    rgba(0, 0, 0, 0.1) 60%,
+    transparent
+  );
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 50px;
+}
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+.overlay-info {
+  font-size: 0.9em;
+}
+.overlay-info .caption {
+  font-weight: 700;
+  font-size: 1.1em;
+  margin: 0;
+  color: white;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+.overlay-info .date {
+  font-style: italic;
+  font-size: 0.8em;
+  margin: 4px 0 0;
+  color: rgba(255, 255, 255, 0.85);
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+.overlay-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 50;
+  display: flex;
+  gap: 8px;
+}
+.overlay-actions button {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background-color 0.2s;
+}
+.overlay-actions button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+.overlay-actions .btn-edit:hover {
+  background: #ffc107;
+  color: white;
+}
+.overlay-actions .btn-delete:hover {
+  background: #dc3545;
+  color: white;
 }
 
-/* Tombol Panah */
-.carousel-arrow {
+/* Lightbox Modal (Tampilan Penuh) */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.lightbox-overlay.hidden {
+  display: none;
+}
+.lightbox-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 900px;
+  margin: 40px 0;
+}
+.lightbox-content img {
+  width: 100%;
+  margin-top: 20px;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.lightbox-info {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px 30px;
+  border-radius: 8px;
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+#lightbox-caption {
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
   background: none;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+.lightbox-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 0px;
+}
+.lightbox-actions button {
+  border: none;
+  margin-left: 35px;
+  padding: 10px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.2s;
+}
+.lightbox-actions button:hover {
+  transform: translateY(-2px);
+}
+#lightbox-edit-btn {
+  background: #edb408;
+  color: white;
+}
+#lightbox-edit-btn:hover {
+  background: #e0a800;
+}
+
+#lightbox-delete-btn {
+  background: #dc3545;
+  color: white;
+}
+#lightbox-delete-btn:hover {
+  background: #c82333;
+}
+
+/* Tombol Navigasi Lightbox */
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
   border-radius: 50%;
   width: 50px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  transition: background-color 0.2s;
+}
+.lightbox-arrow.prev {
+  left: 20px;
+}
+.lightbox-arrow.next {
+  right: 20px;
+}
+.lightbox-arrow:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.lightbox-arrow svg {
+  width: 28px;
+  height: 28px;
+  stroke: white;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2.5em;
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
   cursor: pointer;
-  transition: background-color 0.3s, border-color 0.3s;
-  flex-shrink: 0;
+  border: none;
+  z-index: 1001;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background-color 0.2s;
+}
+.lightbox-close:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+.lightbox-close svg {
+  width: 28px;
+  height: 28px;
+  stroke: white;
 }
 
-.carousel-arrow:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.8);
+/* Gaya untuk modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.modal-content {
+  background-color: #ffffff;
+  color: #333;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+.modal-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.modal-overlay.hidden .modal-content {
+  transform: scale(0.9);
+}
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #1e4a97;
+}
+.close-modal-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #888;
+}
+.close-modal-btn:hover {
+  color: #333;
 }
 
-.carousel-arrow svg {
-  fill: #ffffff;
-  width: 20px;
-  height: 20px;
+/* Grup Form */
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.form-group input[type="text"],
+.form-group input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+}
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 30px;
+}
+.form-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.cancel-btn {
+  background-color: #f1f1f1;
+  color: #555;
+}
+.cancel-btn:hover {
+  background-color: #e1e1e1;
+}
+.save-btn {
+  background-color: #1e4a97;
+  color: #ffffff;
+}
+.save-btn:hover {
+  background-color: #163a7a;
 }
 
 /* Gaya untuk Pemisah Bentuk Kurva */
@@ -155,12 +402,12 @@ nav a:hover {
   fill: #ffffff;
 }
 
-p {
+/* p {
   border-radius: 12px;
   background-color: #ffffff;
   color: black;
   margin: 12px;
-}
+} */
 
 /* Media Query untuk Perangkat Mobile */
 @media (max-width: 1024px) {

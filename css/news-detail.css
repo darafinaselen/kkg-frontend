@@ -1,0 +1,86 @@
+body {
+  background-color: #1e4a97;
+}
+
+/* Konten Utama */
+main {
+  background-color: #ffffff;
+  color: #333;
+  padding: 40px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: #1e4a97;
+  text-decoration: none;
+  font-weight: 600;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
+
+#news-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.news-meta {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.news-main-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.news-body-content {
+  line-height: 1.7;
+}
+
+.news-body-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.news-body-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.btn-kembali {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 25px;
+  padding: 8px 16px;
+  background-color: #1e4a97;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9em;
+  transition: background-color 0.2s;
+}
+
+.btn-kembali:hover {
+  background-color: #1750b3;
+}

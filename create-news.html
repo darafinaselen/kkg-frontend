@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title>Buat Berita Baru</title>
+    <link rel="stylesheet" href="css/create-news.css" />
+
+    <script
+      src="https://cdn.tiny.cloud/1/kj91qwzio47nz5p8xowig9m0n66pgss0azll5hlew8hrs7ee/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
+  </head>
+  <body>
+    <main class="container">
+      <h1 id="form-title">Buat Berita Baru</h1>
+
+      <form id="create-news-form">
+        <div class="form-group">
+          <label for="judul">Judul Berita</label>
+          <input type="text" id="judul" required />
+        </div>
+
+        <div class="form-group">
+          <label for="gambar_sampul">Gambar Sampul</label>
+
+          <div id="image-preview" class="image-preview hidden">
+            <img src="" alt="Gambar Sampul Saat Ini" />
+            <p>Gambar saat ini. Upload file baru untuk menggantinya.</p>
+          </div>
+
+          <input
+            type="file"
+            id="gambar_sampul"
+            name="gambar_sampul"
+            accept="image/*"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="isi_berita">Isi Berita</label>
+          <textarea id="isi_berita" rows="15"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="penulis">Nama Penulis</label>
+          <input type="text" id="penulis" required />
+        </div>
+
+        <div class="form-actions">
+          <a href="news.html" class="btn-cancel">Batal</a>
+          <button type="submit" class="btn-publish">Publikasikan</button>
+        </div>
+      </form>
+    </main>
+
+    <script src="js/create-news.js"></script>
+  </body>
+</html>

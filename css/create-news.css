@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", "Arial", sans-serif;
+  background-color: #1e4a97;
+  color: #ffffff;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header dan Navigasi */
+header {
+  background-color: #1e4a97;
+  padding: 15px 12px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+nav li {
+  margin-left: 25px;
+}
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+nav a:hover {
+  background-color: #ffffff;
+  color: #1e4a97;
+}
+
+/* Konten Utama */
+main {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+form {
+  background-color: #ffffff;
+  color: #333;
+  padding: 40px;
+  border-radius: 15px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn-publish {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1e4a97;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-cancel {
+  display: inline-block;
+  padding: 12px 25px;
+  text-decoration: none;
+  background-color: #f0f0f0;
+  color: #555;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.btn-cancel:hover {
+  background-color: #e0e0e0;
+}
+
+.btn-publish:hover {
+  background-color: #163a7a;
+}
+
+/* BARU: Style untuk preview gambar di mode edit */
+.image-preview {
+  margin-bottom: 15px;
+}
+.image-preview img {
+  max-width: 300px;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.image-preview p {
+  font-style: italic;
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 5px;
+}
+
+.hidden {
+  display: none;
+}

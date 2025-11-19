@@ -1,0 +1,123 @@
+/* Reset dan Pengaturan Dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", "Arial", sans-serif;
+  background-color: #1e4a97; /* Warna biru tua default */
+  color: #ffffff;
+}
+
+/* Pengaturan Container Utama (dipakai di semua halaman) */
+.container {
+  max-width: 1300px;
+  margin: auto auto;
+  padding: 12px 20px;
+}
+
+header {
+  background-color: #1e4a97;
+  color: #ffffff;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.logo {
+  display: block;
+}
+
+.logo img {
+  height: 70px;
+  width: auto;
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin-left: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+  background-color: #ffffff;
+  color: #1e4a97;
+}
+
+/* Style untuk link navbar yang aktif (dari main.js) */
+nav a.active {
+  background-color: #ffffff;
+  color: #1e4a97;
+}
+
+nav ul li a.btn-login-nav,
+nav ul li a#logout-button {
+  background-color: transparent;
+  color: #ffffff !important;
+  border: 2px solid #ffffff;
+  padding: 8px 24px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav ul li a.btn-login-nav:hover,
+nav ul li a#logout-button:hover {
+  background-color: #ffffff;
+  color: #1e4a97 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Konten Utama (Style Tag Global) */
+main {
+  padding-top: 40px;
+  padding-bottom: 0px;
+}
+
+main h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* Media Query Global (untuk nav & h1) */
+@media (max-width: 768px) {
+  nav ul {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  main h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+}

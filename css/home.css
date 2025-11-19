@@ -1,85 +1,10 @@
-/* Reset CSS dan Pengaturan Font Dasar */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Poppins", "Helvetica", "Arial", sans-serif;
-  /* Background default untuk konten setelah hero section */
-  background-color: #ffffff;
-}
-
-/* Wrapper Utama untuk Hero Section */
-.hero-wrapper {
-  background-color: #1e4a97; /* Warna biru tua dari desain */
-  color: #ffffff;
-}
-
-/* Container untuk membatasi lebar konten */
-.container {
-  max-width: 1300px;
-  margin: auto auto;
-  padding: 5px 5px;
-  padding-top: 15px;
-}
-
-/* Header & Navigasi */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 12px 12px;
-  padding-bottom: 4px 4px;
-}
-
-.logo {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-nav div img {
-  width: 50px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  justify-content: space-between;
-}
-
-nav li {
-  margin-left: 12px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 16px;
-  padding: 10px 20px;
-  border-radius: 50px; /* Membuat bentuk pil */
-  transition: all 0.3s ease-in-out;
-}
-
-/* Gaya untuk link navigasi yang aktif */
-
-nav a:hover {
-  background-color: #ffffff;
-  color: #1e4a97; /* Warna biru tua */
-}
-
 /* Konten Hero (Teks dan Gambar) */
 .hero-content {
   display: flex;
   align-items: center;
   gap: 30px;
   padding-top: 30px;
-  padding-bottom: 120px; /* Memberi ruang untuk kurva di bawah */
+  padding-bottom: 30px;
 }
 
 .hero-text {
@@ -150,20 +75,5 @@ nav a:hover {
 
   .hero-text p {
     margin: 0 auto; /* Pusatkan paragraf */
-  }
-}
-
-@media (max-width: 768px) {
-  /* Sembunyikan navigasi desktop dan siapkan untuk menu hamburger (jika diperlukan) */
-  nav ul {
-    display: none;
-  }
-
-  .logo {
-    font-size: 20px;
-  }
-
-  header {
-    justify-content: center;
   }
 }
