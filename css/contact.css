@@ -1,9 +1,18 @@
-/* Main Content Area */
+body {
+  background-color: #1e4a97;
+}
+
+main {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
 .main-content {
-  background-color: var(--primary-blue);
+  background-color: #1e4a97;
   position: relative;
-  padding-bottom: 100px; /* Ruang untuk gelombang di bawah */
+  padding-bottom: 100px;
   z-index: 1;
+  min-height: 100vh;
 }
 
 /* Contact Hero Section */
@@ -12,183 +21,136 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 50px 10px 150px; /* Padding bawah lebih besar untuk gelombang */
-  color: var(--white);
+  padding: 20px 20px 160px;
+  color: white;
   text-align: center;
   position: relative;
   z-index: 2;
 }
 
 .contact-hero .user-icon {
-  font-size: 80px;
+  font-size: 60px;
   margin-bottom: 20px;
-  color: var(--white);
-  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
 }
 
 .contact-hero h1 {
   font-size: 3.5em;
   font-weight: 700;
   letter-spacing: 1px;
-}
-
-/* Wave effect for the background */
-.main-content::before {
-  content: "";
-  position: absolute;
-  bottom: -50px; /* Sesuaikan posisi gelombang */
-  left: 0;
-  width: 100%;
-  height: 110px; /* Tinggi gelombang */
-  background-color: var(--white); /* Warna dasar gelombang */
-  transform: translateY(50px); /* Geser sedikit ke bawah */
-  z-index: 0;
-  display: block;
+  margin: 0;
 }
 
 /* Contact Cards Section */
 .contact-cards {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  padding: 0 5%;
+  padding: 0 20px;
   position: relative;
-  z-index: 3; /* Pastikan kartu di atas gelombang */
-  margin-top: -80px; /* Tarik kartu ke atas, menindih gelombang */
+  z-index: 3;
+  margin-top: -90px;
+  width: 100%;
 }
 
 .card {
-  background-color: var(--white);
-  border-radius: 15px;
-  padding: 40px 30px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 50px 40px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  flex: 1;
-  max-width: 350px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 550px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: translateY(0); /* Untuk efek gelombang, kartu muncul dari bawah */
-  transition: transform 0.5s ease-out; /* Animasi untuk efek gelombang */
+  transform: translateY(0);
 }
 
 .card .icon-wrapper {
-  background-color: var(--primary-blue);
-  color: var(--white);
+  background-color: #25d366;
+  color: white;
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 40px;
+  font-size: 45px;
   margin-bottom: 25px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+}
+
+.card h3 {
+  margin: 0 0 15px 0;
+  color: #1e4a97;
+  font-size: 1.8em;
 }
 
 .card p {
-  font-size: 0.95em;
-  color: #666;
-  line-height: 1.8;
+  font-size: 1.1em;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 90%;
+}
+
+/* Tombol WA Action */
+.btn-wa-action {
+  background-color: #25d366;
+  color: white;
+  text-decoration: none;
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.2em;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+
+.btn-wa-action:hover {
+  background-color: #20bd5a;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-  .navbar ul {
-    gap: 20px;
-  }
-
-  .contact-hero h1 {
-    font-size: 3em;
-  }
-
-  .contact-cards {
-    gap: 30px;
-    flex-wrap: wrap; /* Izinkan kartu untuk melilit */
-    justify-content: center;
-  }
-
-  .card {
-    max-width: 45%; /* Dua kartu per baris */
-  }
-}
-
 @media (max-width: 768px) {
-  .header {
-    justify-content: center;
-    padding: 15px 3%;
-  }
-
-  .navbar ul {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-  }
-
   .contact-hero {
-    padding: 60px 20px 100px;
-  }
-
-  .contact-hero .user-icon {
-    font-size: 60px;
-    width: 100px;
-    height: 100px;
+    padding: 60px 20px 120px;
   }
 
   .contact-hero h1 {
     font-size: 2.5em;
   }
 
-  .contact-cards {
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    margin-top: -50px;
-  }
-
   .card {
-    max-width: 90%; /* Satu kartu per baris */
-  }
-
-  .main-content::before {
-    height: 100px;
-    transform: translateY(30px);
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    padding: 10px 0;
-  }
-
-  /* .navbar a {
-    padding: 6px 10px;
-    font-size: 0.9em;
-  } */
-
-  .contact-hero h1 {
-    font-size: 2em;
-  }
-
-  .card {
-    padding: 30px 20px;
+    padding: 40px 25px;
+    margin-top: -60px;
   }
 
   .card .icon-wrapper {
     width: 70px;
     height: 70px;
     font-size: 35px;
-    margin-bottom: 20px;
   }
 
-  .card p {
-    font-size: 0.85em;
+  .btn-wa-action {
+    font-size: 1em;
+    padding: 12px 25px;
+    width: 100%;
+    justify-content: center;
   }
 }

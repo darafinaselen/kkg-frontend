@@ -1,22 +1,30 @@
-/* Main Content Area */
+body {
+  background-color: #1e4a97;
+}
+
+main {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
 .main-content {
-  background-color: var(--primary-blue);
+  background-color: #1e4a97;
   position: relative;
-  padding-bottom: 100px; /* Ruang untuk gelombang di bawah */
+  padding-bottom: 100px;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
 }
 
-/* About Hero Section */
 .about-hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 20px 150px; /* Padding bawah lebih besar untuk gelombang */
-  color: var(--white);
+  padding: 20px 20px 150px;
+  color: white;
   text-align: center;
   position: relative;
   z-index: 2;
@@ -26,192 +34,204 @@
   font-size: 3.5em;
   font-weight: 700;
   letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
-/* Wave effect for the background */
-.main-content::before {
-  content: "";
-  position: absolute;
-  bottom: -50px; /* Sesuaikan posisi gelombang */
-  left: 0;
-  width: 100%;
-  height: 150px; /* Tinggi gelombang */
-  background-color: var(--white); /* Warna dasar gelombang */
-
-  transform: translateY(50px); /* Geser sedikit ke bawah */
-  z-index: 0;
+.hero-subtitle {
+  font-size: 1.2em;
+  opacity: 0.9;
+  margin-top: 0;
 }
 
-/* Vision and Mission Cards Section */
+/* KARTU BESAR */
 .vision-mission-cards {
   display: flex;
   justify-content: center;
   padding: 0 5%;
   position: relative;
-  z-index: 3; /* Pastikan kartu di atas gelombang */
-  margin-top: -80px; /* Tarik kartu ke atas, menindih gelombang */
-  width: 100%; /* Memastikan section ini mengambil lebar penuh */
+  z-index: 3;
+  margin-top: -80px;
+  width: 100%;
 }
 
 .card-large {
-  background-color: var(--white);
-  border-radius: 15px;
-  padding: 40px 30px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 50px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  width: 90%; /* Lebar kartu besar */
-  max-width: 900px; /* Lebar maksimum untuk kartu besar */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.card-large .section-title {
-  font-size: 2.2em;
-  font-weight: 600;
-  color: var(--primary-blue);
-  margin-bottom: 40px;
+/* Intro Style */
+.about-intro {
+  max-width: 800px;
+  margin-bottom: 30px;
 }
 
-.card-large .content-wrapper {
+.card-large .section-title {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: #1e4a97;
+  margin-bottom: 20px;
+}
+
+.about-intro p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #444;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #eee;
+  width: 80%;
+  margin: 20px 0 40px 0;
+}
+
+/* Wrapper Visi Misi */
+.content-wrapper {
   display: flex;
-  justify-content: space-around;
-  gap: 40px;
+  justify-content: space-between;
+  gap: 50px;
   width: 100%;
+  text-align: left;
+  margin-bottom: 40px;
 }
 
 .vision-card,
 .mission-card {
   flex: 1;
-  padding: 20px;
-  text-align: left; /* Sesuaikan teks ke kiri seperti pada gambar */
-  max-width: 45%; /* Menjaga agar tidak terlalu lebar */
+  background: #f9fbfd; /* Background tipis biar beda */
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid #eef2f7;
+}
+
+.icon-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: #1e4a97;
 }
 
 .vision-card h3,
 .mission-card h3 {
-  font-size: 1.8em;
+  font-size: 1.5em;
   font-weight: 600;
-  color: var(--primary-blue);
+  margin: 0;
+}
+
+.vision-card p {
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 0;
+}
+
+/* Styling List Kegiatan */
+.activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activity-list li {
+  position: relative;
+  padding-left: 20px;
   margin-bottom: 15px;
+  line-height: 1.6;
+  color: #555;
 }
 
-.vision-card p,
-.mission-card p {
-  font-size: 0.95em;
-  color: #666;
-  line-height: 1.8;
+.activity-list li::before {
+  content: "•";
+  color: #1e4a97;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.2em;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .navbar ul {
-    gap: 20px;
-  }
-
-  .about-hero h1 {
-    font-size: 3em;
-  }
-
-  .card-large .section-title {
-    font-size: 1.8em;
-  }
-
-  .card-large .content-wrapper {
-    flex-direction: column; /* Ubah ke kolom pada tablet */
-    align-items: center;
-  }
-
-  .vision-card,
-  .mission-card {
-    max-width: 80%; /* Lebar kartu visi/misi pada tablet */
-    text-align: center; /* Pusat teks pada tablet */
-  }
+/* Benefits Section */
+.benefits-section {
+  background-color: #fff8e1; /* Kuning tipis */
+  padding: 30px;
+  border-radius: 15px;
+  border-left: 5px solid #ffc107;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 40px;
 }
 
-@media (max-width: 768px) {
-  .header {
-    justify-content: center;
-    padding: 15px 3%;
-  }
+.benefits-section h3 {
+  color: #d39e00;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
 
-  .navbar ul {
+.benefits-section p {
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Contact Section */
+.contact-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.contact-section h3 {
+  color: #1e4a97;
+  margin-bottom: 10px;
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #25d366; /* Warna WA */
+  color: white;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1em;
+  margin-top: 15px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+  background-color: #20bd5a;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .content-wrapper {
     flex-direction: column;
-    text-align: center;
-    gap: 10px;
   }
-
-  .about-hero {
-    padding: 60px 20px 100px;
-  }
-
-  .about-hero h1 {
-    font-size: 2.5em;
-  }
-
   .card-large {
     padding: 30px 20px;
-    width: 95%; /* Lebar kartu besar pada mobile */
-    margin-top: -50px;
-  }
-
-  .card-large .section-title {
-    font-size: 1.5em;
-    margin-bottom: 25px;
-  }
-
-  .vision-card,
-  .mission-card {
-    max-width: 100%; /* Lebar penuh pada mobile */
-    padding: 15px;
-  }
-
-  .vision-card h3,
-  .mission-card h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-  }
-
-  .vision-card p,
-  .mission-card p {
-    font-size: 0.9em;
-  }
-
-  .main-content::before {
-    height: 100px;
-    transform: translateY(30px);
   }
 }
 
 @media (max-width: 480px) {
-  .header {
-    padding: 10px 0;
-  }
-
-  .navbar a {
-    padding: 6px 10px;
-    font-size: 0.9em;
-  }
-
   .about-hero h1 {
-    font-size: 2em;
+    font-size: 2.5em;
   }
-
-  .card-large {
-    padding: 20px 15px;
-  }
-
-  .card-large .section-title {
-    font-size: 1.3em;
-  }
-
-  .vision-card h3,
-  .mission-card h3 {
-    font-size: 1.3em;
-  }
-
-  .vision-card p,
-  .mission-card p {
-    font-size: 0.85em;
+  .btn-whatsapp {
+    width: 100%; /* Tombol full width di HP */
+    justify-content: center;
+    box-sizing: border-box;
+    font-size: 1em;
   }
 }

@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const dateEl = document.getElementById("news-date");
   const imageEl = document.getElementById("news-image");
   const bodyEl = document.getElementById("news-body");
-  const mainContainer = document.querySelector(".news-content");
+  const cardContainer = document.querySelector(".news-card");
 
   if (!newsId) {
-    document.querySelector(".news-content").innerHTML =
-      "<h1>404: ID Berita tidak ditemukan.</h1>";
+    cardContainer.innerHTML =
+      "<div style='padding:40px; text-align:center;'><h1>404</h1><p>ID Berita tidak ditemukan.</p></div>";
     return;
   }
 
@@ -28,19 +28,24 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const berita = await response.json();
 
-    document.title = berita.judul;
+    document.title = berita.judul + " - KKG Website";
     titleEl.textContent = berita.judul;
-    authorEl.textContent = berita.penulis;
+    authorEl.textContent = berita.penulis || "Admin";
     dateEl.textContent = new Date(berita.createdAt).toLocaleDateString(
       "id-ID",
       {
+        weekday: "long",
         year: "numeric",
         month: "long",
         day: "numeric",
       }
     );
-    imageEl.src = berita.url_gambar;
-    imageEl.alt = berita.judul;
+    if (berita.url_gambar) {
+      imageEl.src = berita.url_gambar;
+      imageEl.alt = berita.judul;
+    } else {
+      imageEl.src = "https://via.placeholder.com/800x400?text=No+Image";
+    }
 
     bodyEl.innerHTML = berita.konten;
   } catch (error) {

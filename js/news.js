@@ -36,9 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const cardHTML = `
         <article class="card" data-id="${berita.id}">
+          ${actionsHTML} 
           
-          ${actionsHTML} <a href="news-detail.html?id=${berita.id}" class="card-link-area">
-            <img src="${berita.url_gambar}" alt="${berita.judul}">
+          <a href="news-detail.html?id=${berita.id}" class="card-link-area">
+            
+            <img src="${berita.url_gambar}" alt="${berita.judul}" loading="lazy">
+            
             <div class="card-body">
                 <h3>${berita.judul}</h3>
                 <p>${cuplikan}</p> 

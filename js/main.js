@@ -34,6 +34,19 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Gagal memuat navigasi:", error);
       });
   }
+
+  const footerPlaceholder = document.getElementById("footer-placeholder");
+
+  if (footerPlaceholder) {
+    fetch("_footer.html")
+      .then((response) => response.text())
+      .then((data) => {
+        footerPlaceholder.innerHTML = data;
+      })
+      .catch((error) => {
+        console.error("Gagal memuat footer:", error);
+      });
+  }
 });
 
 function highlightActiveLink() {

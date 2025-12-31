@@ -6,26 +6,31 @@
     <title>Galeri</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/galery.css" />
+    <link rel="stylesheet" href="css/footer.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
   <body>
-    <div class="gallery-wrapper">
-      <div id="navbar-placeholder"></div>
+    <div id="navbar-placeholder"></div>
 
-      <main class="gallery-content container">
-        <div class="gallery-header">
-          <h1>GALERY</h1>
-          <button class="add-image-btn">Tambah Gambar</button>
-        </div>
+    <main class="gallery-content container">
+      <div class="gallery-header">
+        <h1>GALERY</h1>
+        <button class="add-image-btn">Tambah Gambar</button>
+      </div>
 
-        <div id="gallery-grid" class="gallery-grid-container"></div>
-      </main>
-    </div>
+      <div id="gallery-grid" class="gallery-grid-container"></div>
+    </main>
+
+    <div id="footer-placeholder"></div>
 
     <div id="addImageModal" class="modal-overlay hidden">
       <div class="modal-content">
@@ -98,8 +103,8 @@
           <p id="lightbox-caption">Keterangan Gambar Akan Tampil Di Sini</p>
           <p id="lightbox-date"></p>
           <div class="lightbox-actions">
-            <button id="lightbox-edit-btn">Edit ✏️</button>            
-            <button id="lightbox-delete-btn">Hapus 🗑️</button>          
+            <button id="lightbox-edit-btn">Edit ✏️</button>
+            <button id="lightbox-delete-btn">Hapus 🗑️</button>
           </div>
         </div>
       </div>
@@ -120,11 +125,6 @@
       </button>
     </div>
 
-    <div class="wave-separator">
-      <footer></footer>
-    </div>
-
-    <!-- <section class="next-section"></section> -->
     <script src="js/galery.js"></script>
     <script src="js/main.js"></script>
   </body>

@@ -1,14 +1,38 @@
-/* Konten Hero (Teks dan Gambar) */
+body {
+  background-color: #1e4a97;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .hero-content {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  justify-content: space-between;
+  gap: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 100%;
 }
 
 .hero-text {
-  flex: 1; /* Mengambil setengah ruang */
+  flex: 1;
 }
 
 .hero-text h1 {
@@ -21,36 +45,35 @@
 .hero-text p {
   font-size: 18px;
   line-height: 1.7;
-  max-width: 450px; /* Agar teks tidak terlalu lebar */
+  max-width: 450px;
   opacity: 0.9;
 }
 
 .hero-image {
-  flex: 1; /* Mengambil setengah ruang */
+  flex: 1;
   text-align: center;
 }
 
 .hero-image img {
   max-width: 100%;
   height: auto;
+  animation: float 3s ease-in-out infinite;
 }
 
-/* Gaya untuk Pemisah Bentuk Kurva (Wave Separator) */
-.wave-separator {
-  /* Harus ditempatkan tepat setelah hero-wrapper */
-  line-height: 0; /* Menghilangkan spasi ekstra di bawah SVG */
+/* .wave-separator {
+  line-height: 0;
 }
 
 .wave-separator {
   position: relative;
   display: block;
   width: 10%;
-  height: 120px; /* Atur tinggi kurva */
+  height: 120px;
 }
 
 .wave-separator .shape-fill {
-  fill: #ffffff; /* Warna kurva harus sama dengan background section berikutnya */
-}
+  fill: #ffffff;
+} */
 
 /* Media Query untuk Perangkat Mobile (Responsif) */
 @media (max-width: 992px) {

@@ -1,55 +1,96 @@
-/* Konten Utama Galeri */
+body {
+  background-color: #1e4a97;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.gallery-content {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* === HEADER SECTION === */
 .gallery-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 40px;
   margin-bottom: 30px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);
   padding-bottom: 20px;
 }
+
 .gallery-header h1 {
   margin: 0;
   color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
+
 .add-image-btn {
   background-color: #ffffff;
   color: #1e4a97;
   border: none;
-  padding: 12px 24px;
-  border-radius: 15px;
+  padding: 10px 24px;
+  border-radius: 50px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  /* display: block; */
-  transition: background-color 0.3s, color 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 .add-image-btn:hover {
-  background-color: #1e4a97;
-  color: #ffffff;
-  border: 2px solid #ffffff;
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
+
+/* === GRID SYSTEM === */
 .gallery-grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+  gap: 25px;
 }
+
 .gallery-item {
   position: relative;
-  border-radius: 8px;
+  border-radius: 15px;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   aspect-ratio: 1 / 1;
+  background-color: #000;
+  transition: transform 0.3s ease;
 }
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
+  opacity: 0.9;
 }
 
+.gallery-item:hover img {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* === OVERLAY STYLE === */
 .gallery-item .overlay {
   position: absolute;
   bottom: 0;
@@ -57,191 +98,172 @@
   right: 0;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.9) 20%,
-    rgba(0, 0, 0, 0.1) 60%,
-    transparent
+    rgba(0, 0, 0, 0.9) 10%,
+    rgba(0, 0, 0, 0.5) 60%,
+    transparent 100%
   );
   color: white;
   opacity: 0;
   transition: opacity 0.3s ease;
-  padding: 16px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
   box-sizing: border-box;
-  padding-top: 50px;
 }
+
 .gallery-item:hover .overlay {
   opacity: 1;
 }
-.gallery-item:hover img {
-  transform: scale(1.1);
-}
-.overlay-info {
-  font-size: 0.9em;
-}
+
 .overlay-info .caption {
   font-weight: 700;
   font-size: 1.1em;
   margin: 0;
-  color: white;
-  background: none;
-  padding: 0;
-  border-radius: 0;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
+
 .overlay-info .date {
   font-style: italic;
-  font-size: 0.8em;
-  margin: 4px 0 0;
-  color: rgba(255, 255, 255, 0.85);
-  background: none;
-  padding: 0;
-  border-radius: 0;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  font-size: 0.85em;
+  margin: 5px 0 0;
+  opacity: 0.9;
 }
+
+/* Actions (Edit/Delete Buttons) */
 .overlay-actions {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   z-index: 50;
   display: flex;
   gap: 8px;
 }
+
 .overlay-actions button {
   border: none;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
   color: white;
   cursor: pointer;
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  width: 35px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  transition: background-color 0.2s;
-}
-.overlay-actions button:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
-.overlay-actions .btn-edit:hover {
-  background: #ffc107;
-  color: white;
-}
-.overlay-actions .btn-delete:hover {
-  background: #dc3545;
-  color: white;
+  transition: all 0.2s;
 }
 
-/* Lightbox Modal (Tampilan Penuh) */
+.overlay-actions button:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+.overlay-actions .btn-edit:hover {
+  color: #ffc107;
+}
+.overlay-actions .btn-delete:hover {
+  color: #dc3545;
+}
+
 .lightbox-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.95);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 2000;
   padding: 20px;
   box-sizing: border-box;
 }
+
 .lightbox-overlay.hidden {
   display: none;
 }
+
 .lightbox-content {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
-  max-width: 900px;
-  margin: 40px 0;
-}
-.lightbox-content img {
   width: 100%;
-  margin-top: 20px;
-  max-height: 75vh;
+  max-width: 900px;
+}
+
+.lightbox-content img {
+  width: auto;
+  max-width: 100%;
+  max-height: 80vh;
   object-fit: contain;
   border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
+
 .lightbox-info {
   text-align: center;
   margin-top: 15px;
-  margin-bottom: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 20px 30px;
-  border-radius: 8px;
-  width: fit-content;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-}
-#lightbox-caption {
   color: white;
+}
+
+#lightbox-caption {
   font-size: 1.2em;
   font-weight: 600;
-  margin: 0;
-  padding: 0;
-  background: none;
+  margin-bottom: 5px;
 }
-.lightbox-actions {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 0px;
+#lightbox-date {
+  font-size: 0.9em;
+  opacity: 0.8;
+  margin-bottom: 15px;
 }
+
 .lightbox-actions button {
   border: none;
-  margin-left: 35px;
-  padding: 10px 25px;
+  margin: 0 10px;
+  padding: 8px 20px;
   border-radius: 20px;
   cursor: pointer;
   font-weight: 600;
-  transition: background-color 0.2s, transform 0.2s;
-}
-.lightbox-actions button:hover {
-  transform: translateY(-2px);
-}
-#lightbox-edit-btn {
-  background: #edb408;
-  color: white;
-}
-#lightbox-edit-btn:hover {
-  background: #e0a800;
+  transition: transform 0.2s;
 }
 
+#lightbox-edit-btn {
+  background: #ffc107;
+  color: #000;
+}
 #lightbox-delete-btn {
   background: #dc3545;
   color: white;
 }
-#lightbox-delete-btn:hover {
-  background: #c82333;
-}
 
-/* Tombol Navigasi Lightbox */
-.lightbox-arrow {
+/* Navigasi Lightbox */
+.lightbox-arrow,
+.lightbox-close {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   border: none;
   color: white;
   cursor: pointer;
-  z-index: 1001;
   border-radius: 50%;
   width: 50px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  transition: background-color 0.2s;
+  transition: background 0.2s;
+}
+
+.lightbox-arrow:hover,
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.lightbox-arrow {
+  top: 50%;
+  transform: translateY(-50%);
 }
 .lightbox-arrow.prev {
   left: 20px;
@@ -249,60 +271,29 @@
 .lightbox-arrow.next {
   right: 20px;
 }
-.lightbox-arrow:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
-
-.lightbox-arrow svg {
-  width: 28px;
-  height: 28px;
-  stroke: white;
-}
-
 .lightbox-close {
-  position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 2.5em;
-  color: white;
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  cursor: pointer;
-  border: none;
-  z-index: 1001;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  transition: background-color 0.2s;
-}
-.lightbox-close:hover {
-  background: rgba(0, 0, 0, 0.6);
-}
-.lightbox-close svg {
-  width: 28px;
-  height: 28px;
-  stroke: white;
 }
 
-/* Gaya untuk modal */
+/* Modal Tambah Gambar */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
-  opacity: 1;
-  transition: opacity 0.3s ease;
+  z-index: 2000;
 }
+
+.modal-overlay.hidden {
+  display: none;
+}
+
 .modal-content {
   background-color: #ffffff;
   color: #333;
@@ -311,37 +302,41 @@
   width: 90%;
   max-width: 500px;
   position: relative;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transform: scale(1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: modalPop 0.3s ease-out;
 }
-.modal-overlay.hidden {
-  opacity: 0;
-  pointer-events: none;
+
+@keyframes modalPop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
-.modal-overlay.hidden .modal-content {
-  transform: scale(0.9);
-}
+
 .modal-content h2 {
   margin-top: 0;
-  margin-bottom: 20px;
   color: #1e4a97;
 }
 .close-modal-btn {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 15px;
+  right: 20px;
   background: none;
   border: none;
   font-size: 28px;
   cursor: pointer;
   color: #888;
+  transition: color 0.2s;
 }
 .close-modal-btn:hover {
-  color: #333;
+  color: #dc3545;
 }
 
-/* Grup Form */
+/* Form Styles */
 .form-group {
   margin-bottom: 20px;
 }
@@ -350,87 +345,47 @@
   margin-bottom: 8px;
   font-weight: 600;
 }
-.form-group input[type="text"],
-.form-group input[type="file"] {
+.form-group input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 .form-actions {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .form-actions button {
-  padding: 10px 20px;
-  border: none;
+  padding: 10px 25px;
   border-radius: 8px;
+  border: none;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
-}
-.cancel-btn {
-  background-color: #f1f1f1;
-  color: #555;
-}
-.cancel-btn:hover {
-  background-color: #e1e1e1;
 }
 .save-btn {
   background-color: #1e4a97;
-  color: #ffffff;
+  color: white;
 }
-.save-btn:hover {
-  background-color: #163a7a;
-}
-
-/* Gaya untuk Pemisah Bentuk Kurva */
-.wave-separator {
-  line-height: 0;
+.cancel-btn {
+  background-color: #eee;
+  color: #333;
 }
 
-.wave-separator svg {
-  display: block;
-  width: 100%;
-  height: 120px;
-}
-
-.wave-separator {
-  fill: #ffffff;
-}
-
-/* p {
-  border-radius: 12px;
-  background-color: #ffffff;
-  color: black;
-  margin: 12px;
-} */
-
-/* Media Query untuk Perangkat Mobile */
-@media (max-width: 1024px) {
-  .carousel-track {
-    /* Sembunyikan gambar ke-3 pada layar yang lebih kecil */
-    justify-content: center;
-  }
-  .carousel-item:last-child {
-    display: none;
-  }
-}
-
+/* Responsive */
 @media (max-width: 768px) {
-  .gallery-content h1 {
-    font-size: 36px;
+  .gallery-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
   }
-  /* Sembunyikan gambar ke-2 dan ke-3, hanya tampilkan satu */
-  .carousel-item:nth-child(2) {
-    display: none;
+  .gallery-header h1 {
+    font-size: 2rem;
   }
-
-  .carousel-arrow {
-    width: 40px;
-    height: 40px;
+  .gallery-grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
   }
 }

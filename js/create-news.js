@@ -11,6 +11,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const imagePreviewImg = imagePreview.querySelector("img");
   const imagePreviewText = imagePreview.querySelector("p");
 
+  function getAuthToken() {
+    return localStorage.getItem("kkgAuthToken");
+  }
+
+  function isLoggedIn() {
+    return getAuthToken() !== null;
+  }
+
+  if (!isLoggedIn()) {
+    alert("Anda harus login untuk mengakses halaman ini!");
+    window.location.href = "login.html";
+    return;
+  }
+
   gambarInput.addEventListener("change", () => {
     const file = gambarInput.files[0];
     if (file) {
@@ -47,6 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         const response = await fetch(API_UPLOAD_URL, {
           method: "POST",
+          headers: {
+            Authorization: `Bearer ${getAuthToken()}`,
+          },
           body: formData,
         });
         if (!response.ok) throw new Error("Gagal upload ke server");
@@ -72,7 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const berita = await response.json();
 
-      // Isi semua form dengan data lama
       formTitle.textContent = "Edit Berita";
       publishButton.textContent = "Update Berita";
       judulInput.value = berita.judul;
@@ -89,13 +105,18 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       console.error(error);
       alert("Gagal memuat data: " + error.message);
-      window.location.href = "news.html"; // Kembalikan jika gagal
+      window.location.href = "news.html";
     }
   }
 
   // === 4. FUNGSI SUBMIT (POST atau PUT) ===
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
+
+    if (!tinymce.get("isi_berita")) {
+      alert("Editor belum siap. Silakan tunggu sebentar.");
+      return;
+    }
 
     const kontenHTML = tinymce.get("isi_berita").getContent();
     if (!kontenHTML || kontenHTML.trim() === "") {
@@ -129,6 +150,9 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response = await fetch(url, {
         method: method,
+        headers: {
+          Authorization: `Bearer ${getAuthToken()}`,
+        },
         body: formData,
       });
 
